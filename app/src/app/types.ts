@@ -12,3 +12,8 @@ export type Book = {
   image: string;
   url: string;
 };
+
+export type CartItem = {
+  book: Book;
+  quantity: number;
+};
