@@ -1,1 +1,22 @@
-<p>detail works!</p>
+  <tui-island [hoverable]="true" [textAlign]="'center'" class="card">
+    <p class="tui-island__category">Book id: {{bookInfo.isbn13}}</p>
+    <img [src]="bookInfo.image" alt="cover">
+    <h3 class="tui-island__title">{{bookInfo.title}}</h3>
+    <p class="tui-island__paragraph">{{bookInfo.subtitle}}</p>
+    <h2 class="price">Price: {{bookInfo.price}}</h2>
+    <tui-marker-icon
+      src="tuiIconPlusCircle"
+      class="custom"
+      size="s"
+    ></tui-marker-icon>
+    <p class="tui-island__paragraph tui-island__paragraph_link">
+      <a
+        [href]="bookInfo.url"
+        tuiButton
+        appearance="outline"
+        type="button"
+      >
+        Look in itbook.store
+      </a>
+    </p>
+  </tui-island>
