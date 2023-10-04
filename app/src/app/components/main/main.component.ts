@@ -2,11 +2,16 @@ import { Component } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import books from '../../books.json';
 import { Book } from '../../types';
-import { TuiInputModule, TuiMarkerIconModule, TuiSelectModule } from "@taiga-ui/kit";
+import {
+  TuiInputModule,
+  TuiMarkerIconModule,
+  TuiSelectModule,
+} from '@taiga-ui/kit';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { tuiIconSearch } from '@taiga-ui/icons';
 import { TuiTextfieldControllerModule } from '@taiga-ui/core';
 import { TuiBlockStatusModule } from '@taiga-ui/layout';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -20,6 +25,7 @@ import { TuiBlockStatusModule } from '@taiga-ui/layout';
     TuiTextfieldControllerModule,
     TuiBlockStatusModule,
     TuiMarkerIconModule,
+    RouterLink,
   ],
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],

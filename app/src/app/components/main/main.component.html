@@ -27,9 +27,16 @@
       *ngFor="let book of books; index as i">
       <td class="tui-table__th tui-table__th_first">{{ i + 1 }}</td>
       <td class="tui-table__td image-row">
-        <img [ngSrc]="book.image" width="50" height="58" alt="img" />{{
+        <img [ngSrc]="book.image" width="50" height="58" alt="img" />
+        <a
+          routerLink="detail"
+          [queryParams]="{id: book.isbn13}"
+        >
+          {{
           book.title
-        }}
+          }}
+        </a>
+
       </td>
       <td class="tui-table__td">{{ book.price }}</td>
       <td class="tui-table__th tui-table__th_last">	<tui-marker-icon
