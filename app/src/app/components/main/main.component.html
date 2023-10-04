@@ -5,7 +5,7 @@
     [tuiTextfieldSize]="'m'"
     [tuiTextfieldIcon]="tuiIconSearch">
     Type something...
-    <input tuiTextfield type="text" (input)="filterBooks($event)" />
+    <input tuiTextfield type="text" (input)="filterBooks()" />
   </tui-input>
 </form>
 <table *ngIf="books.length > 0">

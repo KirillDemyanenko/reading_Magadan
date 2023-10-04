@@ -42,7 +42,7 @@ export class MainComponent {
     this.isPriceSortAsc = !this.isPriceSortAsc;
   }
 
-  filterBooks(ev: Event) {
+  filterBooks() {
     this.books = books.books;
     this.books = this.books.filter(value => {
       return (
