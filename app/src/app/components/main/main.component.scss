@@ -28,4 +28,13 @@
     width: 60%;
   }
 
+  .custom {
+    color: var(--tui-base-01);
+    background: linear-gradient(45deg, #c86dd7 0%, #3023ae 100%);
+    cursor: pointer;
+
+    &:hover {
+      scale: 1.2;
+    }
+  }
 }
