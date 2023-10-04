@@ -1,0 +1,47 @@
+<form [formGroup]="searchForm">
+  <tui-input
+    class="search-input"
+    formControlName="text"
+    [tuiTextfieldSize]="'m'"
+    [tuiTextfieldIcon]="tuiIconSearch">
+    Type something...
+    <input tuiTextfield type="text" (input)="filterBooks($event)" />
+  </tui-input>
+</form>
+<table *ngIf="books.length > 0">
+  <thead>
+    <tr class="tui-table__tr tui-table__tr_border_none">
+      <th class="tui-table__th tui-table__th_first">Order</th>
+      <th class="tui-table__th" (click)="sortBooksByTitle()">
+        Title {{ isTitleAsc ? '▼' : '▲' }}
+      </th>
+      <th class="tui-table__th" (click)="sortBooksByPrice()">
+        Price {{ isPriceSortAsc ? '▼' : '▲' }}
+      </th>
+      <th class="tui-table__th tui-table__th_last">Buy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      class="tui-table__tr tui-table__tr_border_none"
+      *ngFor="let book of books; index as i">
+      <td class="tui-table__th tui-table__th_first">{{ i + 1 }}</td>
+      <td class="tui-table__td image-row">
+        <img [ngSrc]="book.image" width="50" height="58" alt="img" />{{
+          book.title
+        }}
+      </td>
+      <td class="tui-table__td">{{ book.price }}</td>
+      <td class="tui-table__th tui-table__th_last">BUY</td>
+    </tr>
+  </tbody>
+</table>
+<tui-block-status *ngIf="books.length === 0">
+  <img
+    alt="not found"
+    src="https://taiga-ui.dev/assets/images/not-found.svg"
+    tuiSlot="top"
+  />
+  <h4>Not found</h4>
+  Try to find something else
+</tui-block-status>
