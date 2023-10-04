@@ -1,0 +1,49 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: calc(100vh - 110px);
+  flex-direction: column;
+  overflow: scroll;
+  padding: 30px 40px;
+  row-gap: 30px;
+
+  .image-row {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+  }
+
+  form {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    .search-input {
+      width: 60%;
+    }
+  }
+  table {
+    width: 60%;
+
+    a {
+      text-decoration: none;
+      color: black;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .custom {
+    color: var(--tui-base-01);
+    background: linear-gradient(45deg, #c86dd7 0%, #3023ae 100%);
+    cursor: pointer;
+
+    &:hover {
+      scale: 1.2;
+    }
+  }
+}

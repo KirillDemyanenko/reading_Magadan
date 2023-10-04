@@ -1,1 +1,43 @@
-<p>cart works!</p>
+<table *ngIf="cart.cart.length > 0">
+  <thead>
+    <tr class="tui-table__tr tui-table__tr_border_none">
+      <th class="tui-table__th tui-table__th_first">Order</th>
+      <th class="tui-table__th">Title</th>
+      <th class="tui-table__th">Price</th>
+      <th class="tui-table__th">Quantity</th>
+      <th class="tui-table__th tui-table__th_last">Remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      class="tui-table__tr tui-table__tr_border_none"
+      *ngFor="let book of cart.cart; index as i">
+      <td class="tui-table__th tui-table__th_first">{{ i + 1 }}</td>
+      <td class="tui-table__td image-row">
+        <img [ngSrc]="book.book.image" width="50" height="58" alt="img" />
+        <a routerLink="detail" [queryParams]="{ id: book.book.isbn13 }">
+          {{ book.book.title }}
+        </a>
+      </td>
+      <td class="tui-table__td">{{ book.book.price }}</td>
+      <td class="tui-table__td">{{ book.quantity }}</td>
+      <td class="tui-table__th tui-table__th_last">
+        <tui-marker-icon
+          src="tuiIconPlusCircle"
+          class="custom"
+          size="xxs"
+          (click)="cart.removeFromCart(book.book.isbn13)"></tui-marker-icon>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+  <tr
+    class="tui-table__tr tui-table__tr_border_none">
+    <td class="tui-table__th tui-table__th_first"></td>
+    <td class="tui-table__td image-row">TOTAL</td>
+    <td class="tui-table__td">{{ cart.cartPrice }}</td>
+    <td class="tui-table__td">{{ cart.cartAmount }}</td>
+    <td class="tui-table__th tui-table__th_last"></td>
+  </tr>
+  </tfoot>
+</table>
