@@ -12,6 +12,7 @@ import { tuiIconSearch } from '@taiga-ui/icons';
 import { TuiTextfieldControllerModule } from '@taiga-ui/core';
 import { TuiBlockStatusModule } from '@taiga-ui/layout';
 import { RouterLink } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-main',
@@ -37,6 +38,8 @@ export class MainComponent {
   readonly searchForm = new FormGroup({
     text: new FormControl(),
   });
+
+  constructor(public cart: CartService) {}
   compare(a: number | string, b: number | string, isAsc: boolean) {
     return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
   }
