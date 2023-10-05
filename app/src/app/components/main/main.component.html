@@ -28,7 +28,7 @@
       <td class="tui-table__th tui-table__th_first">{{ i + 1 }}</td>
       <td class="tui-table__td image-row">
         <img [ngSrc]="book.image" width="50" height="58" alt="img" />
-        <a routerLink="detail" [queryParams]="{ id: book.isbn13 }">
+        <a routerLink="/detail" [queryParams]="{ id: book.isbn13 }">
           {{ book.title }}
         </a>
       </td>
