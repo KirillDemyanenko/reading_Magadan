@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TuiButtonModule, TuiLinkModule } from '@taiga-ui/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CartService } from '../../services/cart.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -12,5 +13,14 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  constructor(public cart: CartService) {}
+  constructor(
+    public cart: CartService,
+    public auth: AuthService,
+    private router: Router
+  ) {}
+
+  logout() {
+    this.auth.isLogin = false;
+    this.router.navigate(['/']);
+  }
 }
