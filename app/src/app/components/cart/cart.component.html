@@ -40,3 +40,20 @@
     </tr>
   </tfoot>
 </table>
+<tui-block-status *ngIf="cart.cart.length === 0">
+  <img
+    alt="survived"
+    src="https://taiga-ui.dev/assets/images/going-up.svg"
+    tuiSlot="top" />
+
+  <h4>Your cart is empty</h4>
+
+  <span class="text">
+    You can find something in our <a tuiLink routerLink="/store">store</a>
+  </span>
+
+  <button appearance="secondary" tuiButton size="m" routerLink="/store">
+    To the store
+  </button>
+  <button appearance="mono" tuiButton size="m" routerLink="/">Home Page</button>
+</tui-block-status>
