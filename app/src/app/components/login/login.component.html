@@ -1,0 +1,31 @@
+<tui-island
+  [hoverable]="true"
+  [textAlign]="'center'"
+  class="card"
+  *ngIf="!auth.isLogin">
+  <form class="b-form" [formGroup]="loginForm" (submit)="login()">
+    <h3 class="tui-form__header tui-form__header_margin-top_none">Login</h3>
+    <tui-input [tuiHintContent]="testEmail" formControlName="login">
+      Type an email
+      <input tuiTextfield type="email" />
+    </tui-input>
+    <tui-input [tuiHintContent]="testPassword" formControlName="password">
+      Type a password
+      <input tuiTextfield type="password" />
+    </tui-input>
+    <button [disabled]="!loginForm.valid" tuiButton size="m" type="submit">
+      Login
+    </button>
+  </form>
+</tui-island>
+<div class="wrapper">
+  <tui-notification size="l" status="success" *ngIf="auth.isLogin">
+    <div class="tui-text_body-l-2">
+      <strong>Success</strong>
+    </div>
+    You have successfully logged in! Redirecting to the main page...
+  </tui-notification>
+  <tui-notification size="l" status="warning" *ngIf="isSucces">
+    Check your login and password.
+  </tui-notification>
+</div>
