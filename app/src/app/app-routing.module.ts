@@ -4,9 +4,11 @@ import { MainComponent } from './components/main/main.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { CartComponent } from './components/cart/cart.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  { path: '', component: MainComponent },
+  { path: '', component: HomeComponent },
+  { path: 'store', component: MainComponent },
   { path: 'detail', component: DetailComponent },
   { path: 'cart', component: CartComponent },
   { path: '**', component: NotFoundComponent },
